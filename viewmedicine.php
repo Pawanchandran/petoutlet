@@ -1,6 +1,16 @@
-<?php
+<?php 
 //$control->isLogged('admin', 'admin/index'); 
 include 'header.php';
+ //if (isset($_GET['id'])) {
+  # code...
+ // $id=$_GET['id'];
+         //   $stmt = $admin->ret('select * from medicine inner join doctor on doctor.d_id=medicine.d_id and doctor.d_id='.$id);
+//
+
+//}else{
+      //      $table="medicine";
+
+        //    $stmt = $admin->showall($table);
 ?>
              <div class="card">
           <div class="card-header">
@@ -11,36 +21,32 @@ include 'header.php';
               <table class="table table-bordered" id="dataTable" cellspacing="0" bgcolor="skyblue">
           <thead>
             <tr>
-            <th>id</th>
+             <th>#</th>
 							<th>Name</th>
-							<th>User Name </th>
-							<th>Password</th>
-							<th>Phone</th>
-							<th>Qualification</th>
-							<th>Address</th>
-							<th>Email</th>
+							<th> Image</th>  
+							<th>Description</th>
+							<th>MFG date</th>
+              <th>Exp date</th>
+							
 							<th colspan="2">Action</th>
 						</tr>
 					</thead>
-					<tbody id="example">
+					<tbody id="example">   
 						<?php
 						$i=1;
-						$table="doctor";
+						$table="medicine";
 						$stmt = $admin->showall($table);
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 						echo '<tr><td>'.$i.'</td>
-						<td>'.$row['d_name'].'</td><td>'.$row['d_username'].'</td>
-						<td>'.$row['d_password'].'</td><td>'.$row['d_number'].'</td>
-            <td>'.$row['d_qualification'].'</td>
-						<td>'.$row['d_address'].'</td><td>'.$row['d_email'].'</td>';
-						
-		  echo '<td><a href="Controller/delete.php?id='.$row['d_id'].'&table='.$table.'&fieldid=d_id"
+						<td>'.$row['m_name'].'</td><td>'.$row['m_image'].'</td>
+						<td>'.$row['m_desc'].'</td><td>'.$row['m_mfg'].'</td><td>'.$row['m_exp'].'</td>'; echo '<td>
+            <a href="Controller/delete.php?id='.$row['m_id'].'&table='.$table.'&fieldid=m_id"
             class="btn btn-warning">delete</a></td>';
 
-            echo '<td><a href="editdoctor.php?id='.$row['d_id'].'&table='.$table.'&fieldid=d_id"
+            echo '<td><a href="editmedicine.php?id='.$row['m_id'].'&table='.$table.'&fieldid=m_id"
             class="btn btn-success">edit</a></td>';
+
              ?>
-          
                         </tr> 
   
 					<?php
@@ -100,7 +106,22 @@ include 'header.php';
     </div>
   </div>
 
-  
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

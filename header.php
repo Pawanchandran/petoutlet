@@ -1,10 +1,9 @@
 <?php
-
 define('DIR', '../');
 require_once DIR . 'config.php';
 $admin= new Admin();
 $control = new Controller(); 
-if(isset($_SESSION['admin'])){
+if(isset($_SESSION['user1'])){
 }else{
 echo '<script>window.location="../index.php";</script>';
 
@@ -50,10 +49,11 @@ echo '<script>window.location="../index.php";</script>';
   <script src="js/demo/datatables-demo.js"></script>
 
 </head>
+
 </script>
 
-<body id="page-top" style="background-image:url('../images/adminpets.jpg')">
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top" style="background-color:black;">
+<body id="page-top" style="background-image:url('../images/banner.jpg')">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="navbar-brand mr-1" href="index.php">Rio Pet Stores</a>
 
@@ -105,7 +105,7 @@ echo '<script>window.location="../index.php";</script>';
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="https://accounts.google.com/AccountChooser?Email=pawanchandra.pcn%40gmail.com&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dchrome-profile-chooser">Account Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
+          <a class="dropdown-item" href="viewdoctor.php">Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php" >Logout</a>
         </div>
@@ -117,7 +117,7 @@ echo '<script>window.location="../index.php";</script>';
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="sidebar navbar-nav" >
+    <ul class="sidebar navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -140,17 +140,7 @@ echo '<script>window.location="../index.php";</script>';
 
             <a class="dropdown-item" href="addfood.php">Add Food</a!-->
 
-  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pets</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">View</h6>
-            <a class="dropdown-item" href="viewpet.php">View Pet</a>
-            <a class="dropdown-item" href="addpet.php">Add Pet</a>
-           </div>
-      <li class="nav-item dropdown">
+           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Doctor</span>
@@ -158,75 +148,65 @@ echo '<script>window.location="../index.php";</script>';
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">View</h6>
           <a class="dropdown-item" href="viewdoctor.php">View doctor</a>
-            <!--a class="dropdown-item" href="adddoctor.php">Add doctor</a!-->
+            <a class="dropdown-item" href="adddoctor.php">Add doctor</a>
             </div>
             </li>
-             <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Customer</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">View</h6>
-          <a class="dropdown-item" href="viewcustomer.php">View Customer</a>
-            <!--a class="dropdown-item" href="addcustomer.php">Add Customer</a!-->
-            </div>
-            </li>
+
+
             <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Accessories</span>
+          <span>Appointments</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">View</h6>
-            <a class="dropdown-item" href="viewaccessories.php">View Accessories</a>
-            <a class="dropdown-item" href="addaccessories.php">Add Accessories</a>
+           <a class="dropdown-item" href="viewappointment.php">View Appointmnet</a>
+           <a class="dropdown-item" href="addappointment.php">Add Appointment</a>
            </div>
             </li>
+
+
              <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Breed</span>
+          <span>Clinic</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">View</h6>
-            <a class="dropdown-item" href="viewbreed.php">View Breed</a>
-                        <a class="dropdown-item" href="addbreed.php">Add Breed</a>
+            <a class="dropdown-item" href="viewclinic.php">View Clinic</a>
+                        <a class="dropdown-item" href="addclinic.php">Add Clinic</a>
 </div>
             </li>
+
+
               <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Order</span>
+          <span>Medicine</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">View</h6>
-           <a class="dropdown-item" href="vieworder.php">View Order</a>
-                      <!--a class="dropdown-item" href="addorder.php">Add Order</a!-->
+           <a class="dropdown-item" href="viewmedicine.php">View Medicine</a>
+                      <a class="dropdown-item" href="addmedicine.php">Add Medicine</a>
 </div>
             </li>
+
+
              <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Payment</span>
+          <span>Treatment</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">View</h6>
-            <a class="dropdown-item" href="viewpayment.php">View Payment</a>
-             <!--a class="dropdown-item" href="addpayment.php">Add Payment</a>
-            <-a class="dropdown-item" href="vieworder.php">View Order</a!-->
+            <a class="dropdown-item" href="viewtreat.php">View Treatment</a>
+             <a class="dropdown-item" href="addtreatment.php">Add Treatment</a>
+            <!--a class="dropdown-item" href="vieworder.php">View Order</a!-->
                         <!--a class="dropdown-item" href="viewfoods.php">View Food</a!-->
-
-
-
-
-
-
-
-
 </div>
 
       </li>
      
      
     </ul>
+

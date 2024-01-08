@@ -1,39 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<title>Login V20</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-<body id="page-top" style="background-color:skyblue">
-<div class="container" style="max-width:400px; min-width:400px; margin-top:1s0px;">
-<div class="card text-white" style="background-color:rgba(74, 74, 177, 0.46);">
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-b-160 p-t-50">
+				<form  class="login100-form validate-form" action="Controller/doctorlogin2.php" method="POST">
 
-<div class="container">
-<form action="Controller/adminlogin.php" method="POST">
-	<div>
-		<h2>Login form</h2>
-	</div>
-	<div class="form-group form-row">
-        <label class="col-md-4">Username</label>
-		<input type="text" name="username" class="form-text"  required placeholder="Enter username">
-	</div>
-	<div class="form-group form-row">
-        <label class="col-md-4">Password</label>
-		<input type="password" name="password" class="form-text"  required placeholder="Enter password">
-	</div>
-	
-	
-	
-	<div>
-		<input type="submit" name="login" value="login" class="btn btn-success">
-	<a href="register.php?id=<?php echo $row['id']; ?>">Register</a>
+					<span class="login100-form-title p-b-43">
+						Account Login
+					</span>					
+					<div class="wrap-input100 rs1 validate-input" data-validate = "Username is required">
+					<input class="input100" type="text" name="d_username" width="100px;">
+						<span class="label-input100">Username</span>
+					</div>
+					<div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="d_password">
+						<span class="label-input100">Password</span>
+					</div>
 
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" name="login">
+		
+
+							Sign in
+						</button>
+					</div>
+					
+					<div class="text-center w-full p-t-23">
+						<a href="forgotpass.php" class="txt1">
+							Forgot password?
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	
-</form>
-</div>
-</div>
-</div>
+	
+
+
+
+
+
+
+2
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
 </body>
 </html>
-
-

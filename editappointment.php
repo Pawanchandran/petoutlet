@@ -1,7 +1,7 @@
 <?php
 define('DIR', '../');
 require_once DIR . 'config.php';
-$admin= new Admin();
+$doctor= new Admin();
 $control = new Controller(); 
 
 if (isset($_GET['table'])) {
@@ -14,7 +14,7 @@ if (isset($_GET['table'])) {
 		//$page=$_GET['page'];
 
 
-    $stmt=$admin->show_id($table,$field,$id);
+    $stmt=$doctor->show_id($table,$field,$id);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
       
 
@@ -27,44 +27,46 @@ if (isset($_GET['table'])) {
 	<div class="card-header badge-success">
 		<h2> Doctor</h2>
 	</div>
-    <form action="Controller/editdoctor.php"method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['d_id']; ?>">
+    <form action="Controller/editappointment.php"method="POST">
+    <input type="hidden" name="id" value="<?php echo $row['a_id']; ?>">
 	<div class="card-body">
-	<div class="form-group form-row">
+	<div class="form-group">
 		
-    <label class="col-md-4">Name</label>  
-        <input type="text" name="d_name" class="form-control col-md-8" required placeholder="Enter name"value="<?php echo $row['d_name']; ?>">
-    </div>
-    <div class="form-group form-row">
-        <label class="col-md-4">User Name</label>
-        <input type="text" name="d_username" class="form-text" required placeholder="Enter user name" value="<?php echo $row['d_username']; ?>">
-    </div>
-   <div class="form-group form-row">
-        <label class="col-md-4">Password</label>
-        <input type="password" name="d_password" class="form-text" required placeholder="Enter password" value="<?php echo $row['d_password']; ?>">
-    </div>
-    
-    <div class="form-group form-row">
-        <label class="col-md-4">Phone</label>
-        <input type="tel" name="d_number" class="form-text" required placeholder="Enter phone number"value="<?php echo $row['d_number']; ?>">
-            </div>
-   <div class="form-group form-row">
-        <label class="col-md-4">Qualification</label>
-        <input type="text" name="d_qualification" class="form-text" required placeholder="Enter qualification" value="<?php echo $row['d_qualification']; ?>">
-    </div>
-    <div class="form-group form-row">
-       <label class="col-md-4">Address</label>
-       <textarea name="d_address" class="form-text" required placeholder="Enter the address"><?php echo $row['d_address']; ?></textarea>
-</div>
-   <div class="form-group form-row">
-        <label class="col-md-4">Email</label>
-        <input type="email" name="d_email" class="form-text" required placeholder="Enter email"value="<?php echo $row['d_email']; ?>">
     
 
+   <label>Name</label>
+        <input type="text" name="a_name" class="form-text" required placeholder="Enter name"value="<?php echo $row['a_name']; ?>">
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+         <select type="text" name="a_type" class="form-text" required placeholder="Enter user name"value="<?php echo $row['a_status']; ?>">
+            <option>Available</option>
+            <option>Unavailable</option>
+        
+    </div>
+    <div class="form-group">
+        <label>From</label>
+        <input type="time" name="a_time2" class="form-text" required placeholder="Enter time"value="<?php echo $row['a_time1']; ?>">
+    </div>
+     <div class="form-group">
+        <label>To</label>
+        <input type="time" name="a_time2" class="form-text" required placeholder="Enter time"value="<?php echo $row['a_time2']; ?>">
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="a_date" class="form-text" required placeholder="Enter date"value="<?php echo $row['a_date']; ?>">
+    </div>
 <div class="card-footer form-row">
         <input type="submit" name="btn" value="submit" class="btn btn-success col-md-5">
                 <input type="reset" name="clr" value="cancel" class="btn btn-danger col-md-5" style="float:right;">
+
     </div>
+
+
+
+
+
+	</div>
 	</form>
 
 </div>

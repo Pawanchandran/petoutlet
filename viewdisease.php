@@ -1,19 +1,14 @@
-<?php
-// define('DIR', '../');
-// require_once DIR . 'config.php';
-// $admin= new Admin();
-// $control = new Controller(); 
+<?php 
 //$control->isLogged('admin', 'admin/index'); 
 include 'header.php';
 ?>
-             <div class="card col-md-10">
+             <div class="card">
           <div class="card-header">
             <i class="fas fa-table"></i>
             Data Table Example</div>
           <div class="card-body">
             <div class="table-responsive">
-                        <table class="table table-stripped" id="dataTable" cellspacing="0" bgcolor="skyblue">
-          <thead>
+              <table class="table table-bordered" id="dataTable" cellspacing="0" bgcolor="skyblue" >
             <tr>
               <th>#</th>
               <th>Name</th>        
@@ -27,21 +22,15 @@ include 'header.php';
           <tbody id="example">
             <?php
             $i=1;
-             $id=$_SESSION['user2'];
-            $query="select *from disease inner join medicine inner join treat on disease.t_id=treat.t_id and treat.m_id=medicine.m_id";
-            $stmt = $admin->ret($query);
+            $table="disease";
+            $stmt = $admin->showall($table);
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<tr><td>'.$i.'</td>
             <td>'.$row['ds_name'].'</td><td>'.$row['ds_desc'].'</td>
-            <td>'.$row['ds_image'].'</td>;' 
-                echo '<td><a href="Controller/delete.php?id='.$row['ds_id'].'&table='.$table.'&fieldid=ds_id"
-            class="btn btn-warning">delete</a></td>';
-
-            echo '<td><a href="editdoctor.php?id='.$row['ds_id'].'&table='.$table.'&fieldid=ds_id"
-            class="btn btn-success">edit</a></td>';
-
-             ?>?>
-           
+            <td>'.$row['ds_image'].'</td>;' ?>
+            <td><a href="showdelete.php?id=<?php echo $row['rid']; ?>" onclick="return confirm('are you sure');" class="btn btn-danger">Delete</a></td>
+            
+            <td><a href="showedit.php?id=<?php echo $row['rid']; ?>" class="btn btn-info">Edit</a></td>
                         </tr> 
   
           <?php
@@ -101,5 +90,23 @@ include 'header.php';
     </div>
   </div>
 
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+
+</body>
 
 </html>

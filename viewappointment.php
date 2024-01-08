@@ -1,44 +1,56 @@
 <?php
+// define('DIR', '../');
+// require_once DIR . 'config.php';
+// $admin= new Admin();
+// $control = new Controller(); 
 //$control->isLogged('admin', 'admin/index'); 
 include 'header.php';
+ if (isset($_GET['id'])) {
+  # code...
+  $id=$_GET['id'];
+            $stmt = $admin->ret('select * from store inner join appointment on doctor.d_id=appointment.d_id and doctor.a_id='.$id);
+
+
+}else{
+            $table="appointment";
+
+            $stmt = $admin->showall($table);
+          }
 ?>
-             <div class="card">
+
+             <div class="card col-md-10">
           <div class="card-header">
             <i class="fas fa-table"></i>
             Data Table Example</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" cellspacing="0" bgcolor="skyblue">
+                        <table class="table table-stripped" id="dataTable" cellspacing="0" bgcolor="skyblue">
           <thead>
             <tr>
-            <th>id</th>
+            <th>#</th>
 							<th>Name</th>
-							<th>User Name </th>
-							<th>Password</th>
-							<th>Phone</th>
-							<th>Qualification</th>
-							<th>Address</th>
-							<th>Email</th>
+							<th> Status </th>  
+							<th>Time</th>
+							<th>Date</th>
+							
 							<th colspan="2">Action</th>
 						</tr>
 					</thead>
 					<tbody id="example">
 						<?php
 						$i=1;
-						$table="doctor";
-						$stmt = $admin->showall($table);
+						//$table="appointment";
+						//$stmt = $admin->showall($table);
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 						echo '<tr><td>'.$i.'</td>
-						<td>'.$row['d_name'].'</td><td>'.$row['d_username'].'</td>
-						<td>'.$row['d_password'].'</td><td>'.$row['d_number'].'</td>
-            <td>'.$row['d_qualification'].'</td>
-						<td>'.$row['d_address'].'</td><td>'.$row['d_email'].'</td>';
-						
-		  echo '<td><a href="Controller/delete.php?id='.$row['d_id'].'&table='.$table.'&fieldid=d_id"
+						<td>'.$row['a_name'].'</td><td>'.$row['a_status'].'</td>
+						<td>'.$row['a_time1'].'</td><td>'.$row['a_date'].'</td>'; 
+					echo '<td><a href="Controller/delete.php?id='.$row['a_id'].'&table='.$table.'&fieldid=a_id"
             class="btn btn-warning">delete</a></td>';
 
-            echo '<td><a href="editdoctor.php?id='.$row['d_id'].'&table='.$table.'&fieldid=d_id"
+            echo '<td><a href="editappointment.php?id='.$row['a_id'].'&table='.$table.'&fieldid=a_id"
             class="btn btn-success">edit</a></td>';
+
              ?>
           
                         </tr> 
@@ -100,7 +112,22 @@ include 'header.php';
     </div>
   </div>
 
-  
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
